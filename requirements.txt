@@ -1,0 +1,4 @@
+google-genai
+matplotlib
+numpy
+pydantic
