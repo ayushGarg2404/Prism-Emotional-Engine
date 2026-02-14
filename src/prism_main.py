@@ -15,8 +15,16 @@ except ImportError:
 
 # 1. API Configuration
 # Replace with your actual key or ensure it is set in your OS environment
-GEMINI_API_KEY = "AIzaSyBzLm3jFAb6ewwzu_pfuOn49o6Kk8yjvzQ" 
-os.environ["GOOGLE_API_KEY"] = GEMINI_API_KEY 
+GEMINI_API_KEY = os.environ.get("GOOGLE_API_KEY") 
+
+if not GEMINI_API_KEY:
+    print("\n[CRITICAL ERROR] API Key not found.")
+    print("Please set your key in the terminal before running:")
+    print("Windows: set GOOGLE_API_KEY=your_key")
+    print("Mac/Linux: export GOOGLE_API_KEY=your_key")
+    sys.exit(1)
+
+os.environ["GOOGLE_API_KEY"] = GEMINI_API_KEY
 
 def main():
     print("\n" + "="*60)
@@ -86,4 +94,5 @@ def main():
         traceback.print_exc()
 
 if __name__ == "__main__":
+
     main()
