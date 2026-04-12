@@ -1,0 +1,6 @@
+google-genai
+matplotlib
+numpy
+pydantic
+langgraph
+python-dotenv
